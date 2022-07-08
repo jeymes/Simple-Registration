@@ -1,9 +1,12 @@
 import * as J from './Pages.styles'
+import Layout from '../components/Layout/Layout'
 
 export default function Home() {
   return (
-    <div>
-    <J.Title>jeymes</J.Title>
-  </div>
+    <J.Container>
+    <Layout titulo="Cadastro Simples">
+      <span>Conteudo</span>
+    </Layout>
+  </J.Container>
   )
 }
