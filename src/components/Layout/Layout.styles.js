@@ -6,7 +6,6 @@ justify-content: flex-start;
 align-items: flex-start;
 flex-direction: column;
 width: 900px;
-height: 200px;
 background-color: white;
 border-radius: 10px;
 /* border: 1px solid red; */
