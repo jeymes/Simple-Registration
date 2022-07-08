@@ -1,4 +1,5 @@
-import Cliente from "../../core/Cliente/Cliente"
+import Cliente from "../../core/Cliente/Cliente";
+import * as J from './Tabela.styles';
 
 interface TabelaProps {
     clientes: Cliente[]
@@ -8,35 +9,38 @@ export default function Tabela(props) {
 
     function renderizarCabecalho() {
         return (
-            <tr>
-                <th>Código</th>
-                <th>Nome</th>
-                <th>Idade</th>
-            </tr>
+            
+                <J.ContainerTr>
+                    <th className="Cod">Código</th>
+                    <th>Nome</th>
+                    <th className="Idad">Idade</th>
+                </J.ContainerTr>
         )
     }
 
     function renderizarDados() {
         return props.clientes?.map((cliente, i) => {
             return (
-                <tr key={'cliente.id'}>
-                    <td>{cliente.id}</td>
-                    <td>{cliente.nome}</td>
-                    <td>{cliente.idade}</td>
-                </tr>
+                <J.ContainerTr key={'cliente.id'}>
+                    
+                    <td className={`${i % 2 === 0 ? 'Zeb' : 'Zec'}`}>{cliente.id}</td>
+                    <td className={`${i % 2 === 0 ? 'Zeb' : 'Zec'}`}>{cliente.nome}</td>
+                    <td className={`${i % 2 === 0 ? 'Zeb' : 'Zec'}`}>{cliente.idade}</td>
+                  
+                </J.ContainerTr>
             )
         })
     }
 
     return (
-        <table>
-            <thead>
+        <J.ContainerTable>
+            <J.ContainerThead>
                 {renderizarCabecalho()}
-            </thead>
-            <tbody>
+            </J.ContainerThead>
+            <J.ContainerTbody>
                 {renderizarDados()}
-            </tbody>
+            </J.ContainerTbody>
 
-        </table>
+        </J.ContainerTable>
     )
 }
