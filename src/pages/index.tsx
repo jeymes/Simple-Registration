@@ -9,13 +9,25 @@ export default function Home() {
     new Cliente('Ana', 34, '1'),
     new Cliente('Rosa', 20, '2'),
     new Cliente('Pedro', 44, '3'),
-    new Cliente('Pedro', 44, '4')
+    new Cliente('Joao', 52, '4')
   ]
+
+  function clienteSelecionado(cliente: Cliente) {
+    console.log(cliente.nome)
+  }
+  function clienteExcluido(cliente: Cliente) {
+    console.log(`Excluir... ${cliente.nome}`)
+  }
+
   return (
     <J.Container>
-    <Layout titulo="Cadastro Simples">
-      <Tabela clientes={clientes}></Tabela>
-    </Layout>
-  </J.Container>
+      <Layout titulo="Cadastro Simples">
+
+        <Tabela clientes={clientes}
+          clienteSelecionado={clienteSelecionado}
+          clinteExcluido={clienteExcluido}
+        />
+      </Layout>
+    </J.Container>
   )
 }

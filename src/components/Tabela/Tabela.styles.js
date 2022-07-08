@@ -7,7 +7,7 @@ border-collapse: collapse;
 
 `;
 export const ContainerThead = styled.thead`
-background-image: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
+background-image: radial-gradient( circle 939px at 94.7% 50%,  rgba(0,178,169,1) 0%, rgba(0,106,101,1) 76.9% );
 border-radius: 10px;
 `;
 export const ContainerTbody = styled.tbody`
@@ -17,11 +17,11 @@ border-radius: 10px;
 export const ContainerTr = styled.tr`
 
 .Zec{
-    background-color: #DA70D6;
+    background-color: #20B2AA;
     opacity: 90%;
 }
 .Zeb{
-    background-color: #DDA0DD;
+    background-color:#66CDAA;
     opacity: 90%;
 
 }
@@ -35,12 +35,49 @@ text-align: left;
 .Cod{
     border-top-left-radius: 10px;
 }
-.Idad{
+.Aco{
     border-top-right-radius: 10px;
+    text-align: center;
 }
 td{
 padding: 10px;
+padding-left: 10px;
 color: black;
 text-align: left;
+}
+`;
+
+export const ContainerTd = styled.td`
+display: flex;
+justify-content: center;
+align-items: center;
+/* border: 1px solid red; */
+
+button{
+    width: 35px;
+    border: none;
+    background-color: transparent;
+}
+
+.ButtonEdicao{
+    color: green;
+    padding: 5px;
+
+
+    :hover{
+        background-color: white;
+        border-radius: 100%;
+
+    }
+}
+.ButtonLixo{
+    color: red;
+    padding: 5px;
+
+
+    :hover{
+        background-color: white;
+        border-radius: 100%;  
+    }
 }
 `;
