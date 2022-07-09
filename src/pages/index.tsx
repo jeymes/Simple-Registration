@@ -2,6 +2,7 @@ import * as J from './Pages.styles'
 import Layout from '../components/Layout/Layout'
 import Tabela from '../components/Tabela/Tabela'
 import Cliente from '../core/Cliente/Cliente'
+import Button from '../components/Button/Button'
 
 export default function Home() {
 
@@ -22,7 +23,9 @@ export default function Home() {
   return (
     <J.Container>
       <Layout titulo="Cadastro Simples">
-
+        <J.ButtonContainer>
+          <Button cor='green'>Novo Cliente</Button>
+        </J.ButtonContainer>
         <Tabela clientes={clientes}
           clienteSelecionado={clienteSelecionado}
           clinteExcluido={clienteExcluido}

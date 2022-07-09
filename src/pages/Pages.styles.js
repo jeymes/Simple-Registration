@@ -11,3 +11,8 @@ export const Container = styled.h1`
   background-color: #08AEEA;
   background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
 `;
+export const ButtonContainer = styled.div`
+display: flex;
+justify-content: flex-end;
+margin-bottom: 10px;
+`;
