@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-display: flex;
+/* display: flex; */
 justify-content: flex-start;
 align-items: flex-start;
 flex-direction: column;
@@ -11,5 +11,4 @@ border-radius: 10px;
 `;
 export const SubContainer = styled.div`
 padding: 18px;
-
 `;

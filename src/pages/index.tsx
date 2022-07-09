@@ -4,6 +4,7 @@ import Tabela from '../components/Tabela/Tabela'
 import Cliente from '../core/Cliente/Cliente'
 import Button from '../components/Button/Button'
 import Formulario from '../components/Formulario/Formulario'
+import { useState } from 'react'
 
 export default function Home() {
 
@@ -21,17 +22,33 @@ export default function Home() {
     console.log(`Excluir... ${cliente.nome}`)
   }
 
+  function salvarCliente(cliente: Cliente) {
+    console.log(cliente)
+  }
+
+  const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
+
   return (
     <J.Container>
       <Layout titulo="Cadastro Simples">
-        <J.ButtonContainer>
-          <Button cor='green'>Novo Cliente</Button>
-        </J.ButtonContainer>
-        {/* <Tabela clientes={clientes}
-          clienteSelecionado={clienteSelecionado}
-          clinteExcluido={clienteExcluido}
-        /> */}
-        <Formulario cliente={clientes[0]}/>
+        {visivel === 'tabela' ? (
+          <>
+            <J.ButtonContainer>
+              <Button 
+              cor='green'
+              onClick={() => setVisivel('form')}>Novo Cliente</Button>
+            </J.ButtonContainer>
+            <Tabela clientes={clientes}
+              clienteSelecionado={clienteSelecionado}
+              clinteExcluido={clienteExcluido}
+            />
+          </>
+        ) : <Formulario cliente={clientes[0]}
+        clienteMudou={salvarCliente}
+        cancelado={() => setVisivel('tabela')}
+         /> }
+
+        
       </Layout>
     </J.Container>
   )

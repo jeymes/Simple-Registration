@@ -6,6 +6,8 @@ import Button from '../Button/Button'
 
 interface FormularioProps {
     cliente: Cliente
+    clienteMudou?: (clinete: Cliente) => void
+    cancelado?: () => void
 }
 
 export default function Formulario(props: FormularioProps) {
@@ -17,24 +19,30 @@ export default function Formulario(props: FormularioProps) {
             {id ? (
                 <Entrada
                     texto='Código'
-                    valor={id}/>
+                    valor={id} />
             ) : false}
             <Entrada
                 texto='Nome'
                 tipo='text'
                 valor={nome}
-                valorMudou={setNome}/>
+                valorMudou={setNome} />
 
             <Entrada
                 texto='Idade'
                 tipo='number'
                 valor={idade}
-                valorMudou={setIdade}/>
+                valorMudou={setIdade} />
 
-                <J.ContainerButton>
-                    <Button cor='blue'>{id ? 'Alterar' : 'Salvar'}</Button>
-                    <Button cor='gray'>Cancelar</Button>
-                </J.ContainerButton>
+            <J.ContainerButton>
+                <Button
+                    cor='blue'
+                    onClick={() => props.clienteMudou?.(new Cliente(nome, +idade, id))}>
+                    {id ? 'Alterar' : 'Salvar'}</Button>
+
+                <Button
+                    cor='gray'
+                    onClick={props.cancelado}>Cancelar</Button>
+            </J.ContainerButton>
         </div>
     )
 }
