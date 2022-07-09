@@ -3,6 +3,7 @@ import Layout from '../components/Layout/Layout'
 import Tabela from '../components/Tabela/Tabela'
 import Cliente from '../core/Cliente/Cliente'
 import Button from '../components/Button/Button'
+import Formulario from '../components/Formulario/Formulario'
 
 export default function Home() {
 
@@ -26,10 +27,11 @@ export default function Home() {
         <J.ButtonContainer>
           <Button cor='green'>Novo Cliente</Button>
         </J.ButtonContainer>
-        <Tabela clientes={clientes}
+        {/* <Tabela clientes={clientes}
           clienteSelecionado={clienteSelecionado}
           clinteExcluido={clienteExcluido}
-        />
+        /> */}
+        <Formulario cliente={clientes[0]}/>
       </Layout>
     </J.Container>
   )

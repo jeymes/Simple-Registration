@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContainerTable = styled.table`
-width: 860px;
+width: 100%;
 border-collapse: collapse;
 
 `;

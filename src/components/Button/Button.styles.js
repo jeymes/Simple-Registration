@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const ContainerButton = styled.div`
+margin-inline: 5px;
 
 button{
 background-color: green;
