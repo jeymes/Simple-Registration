@@ -8,6 +8,10 @@ import { useState } from 'react'
 
 export default function Home() {
 
+  const [cliente, setCliente] = useState<Cliente>(Cliente.vazio())
+  const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
+
+
   const clientes = [
     new Cliente('Ana', 34, '1'),
     new Cliente('Rosa', 20, '2'),
@@ -16,17 +20,21 @@ export default function Home() {
   ]
 
   function clienteSelecionado(cliente: Cliente) {
-    console.log(cliente.nome)
+    setCliente(cliente)
+    setVisivel('form')
   }
   function clienteExcluido(cliente: Cliente) {
     console.log(`Excluir... ${cliente.nome}`)
   }
 
+  function novoCliente() {
+    setCliente(Cliente.vazio())
+    setVisivel('form')
+  }
   function salvarCliente(cliente: Cliente) {
     console.log(cliente)
+    setVisivel('tabela')
   }
-
-  const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
 
   return (
     <J.Container>
@@ -36,14 +44,14 @@ export default function Home() {
             <J.ButtonContainer>
               <Button 
               cor='green'
-              onClick={() => setVisivel('form')}>Novo Cliente</Button>
+              onClick={novoCliente}>Novo Cliente</Button>
             </J.ButtonContainer>
             <Tabela clientes={clientes}
               clienteSelecionado={clienteSelecionado}
               clinteExcluido={clienteExcluido}
             />
           </>
-        ) : <Formulario cliente={clientes[0]}
+        ) : <Formulario cliente={cliente}
         clienteMudou={salvarCliente}
         cancelado={() => setVisivel('tabela')}
          /> }
