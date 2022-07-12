@@ -1,7 +1,7 @@
 import * as J from './Pages.styles'
 import Layout from '../components/Layout/Layout'
 import Tabela from '../components/Tabela/Tabela'
-import Cliente from '../core/Cliente/Cliente'
+import Cliente from '../core/Cliente'
 import Button from '../components/Button/Button'
 import Formulario from '../components/Formulario/Formulario'
 import { useState } from 'react'

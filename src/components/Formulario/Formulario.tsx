@@ -1,6 +1,6 @@
 import * as J from './Formulario.styles'
 import { useState } from 'react';
-import Cliente from '../../core/Cliente/Cliente';
+import Cliente from '../../core/Cliente';
 import Entrada from '../Entrada/Entrada';
 import Button from '../Button/Button'
 

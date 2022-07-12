@@ -1,4 +1,4 @@
-import Cliente from "../../core/Cliente/Cliente";
+import Cliente from "../../core/Cliente";
 import { IconeEdicao, IconeLixo } from "../Icons/Icons";
 import * as J from './Tabela.styles';
 
