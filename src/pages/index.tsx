@@ -4,20 +4,27 @@ import Tabela from '../components/Tabela/Tabela'
 import Cliente from '../core/Cliente'
 import Button from '../components/Button/Button'
 import Formulario from '../components/Formulario/Formulario'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import ClienteRepositorio from '../core/ClienteRepositorio'
+import ColecaoCliente from '../backend/db/ColecaoCliente'
 
 export default function Home() {
 
+  const repo: ClienteRepositorio = new ColecaoCliente()
+
   const [cliente, setCliente] = useState<Cliente>(Cliente.vazio())
+  const [clientes, setClientes] = useState<Cliente[]>([])
   const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
 
+  useEffect(obterTodos, [])
+  
 
-  const clientes = [
-    new Cliente('Ana', 34, '1'),
-    new Cliente('Rosa', 20, '2'),
-    new Cliente('Pedro', 44, '3'),
-    new Cliente('Joao', 52, '4')
-  ]
+  function obterTodos() {
+    repo.obterTodos().then(clientes => {
+      setClientes(clientes)
+      setVisivel('tabela')
+    })
+  }
 
   function clienteSelecionado(cliente: Cliente) {
     setCliente(cliente)
@@ -31,9 +38,9 @@ export default function Home() {
     setCliente(Cliente.vazio())
     setVisivel('form')
   }
-  function salvarCliente(cliente: Cliente) {
-    console.log(cliente)
-    setVisivel('tabela')
+  async function salvarCliente(cliente: Cliente) {
+    await repo.salvar(cliente)
+    obterTodos()
   }
 
   return (

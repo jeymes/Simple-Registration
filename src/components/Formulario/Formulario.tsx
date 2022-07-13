@@ -9,7 +9,6 @@ interface FormularioProps {
     clienteMudou?: (clinete: Cliente) => void
     cancelado?: () => void
 }
-
 export default function Formulario(props: FormularioProps) {
     const id = props.cliente?.id
     const [nome, setNome] = useState(props.cliente?.nome ?? '')
