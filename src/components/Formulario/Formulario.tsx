@@ -6,7 +6,7 @@ import Button from '../Button/Button'
 
 interface FormularioProps {
     cliente: Cliente
-    clienteMudou?: (clinete: Cliente) => void
+    clienteMudou?: (cliente: Cliente) => void
     cancelado?: () => void
 }
 export default function Formulario(props: FormularioProps) {
